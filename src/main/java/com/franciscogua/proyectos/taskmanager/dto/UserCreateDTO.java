@@ -16,7 +16,7 @@ public class UserCreateDTO {
 
     @NotBlank(message = "Username cannot be blank")
     @Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters")
-    private String username;
+    private String displayName;
 
     @NotBlank(message = "Email cannot be blank")
     @Email(message = "Email should be valid")
