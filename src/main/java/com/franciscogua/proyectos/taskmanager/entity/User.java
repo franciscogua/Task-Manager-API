@@ -41,7 +41,7 @@ public class User implements UserDetails {
     @NotBlank
     @Size(min = 3, max = 50)
     @Column(unique = true, nullable = false)
-    private String username;
+    private String displayName;
 
     @NotNull
     private String email;
