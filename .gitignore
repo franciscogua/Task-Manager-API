@@ -79,6 +79,11 @@ out/
 /nbdist/
 .nb-gradle/
 build/
+nbactions.xml
 
 # VS Code
 .vscode/
+
+# Local Environment Variables
+.env
+
