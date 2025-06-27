@@ -27,9 +27,9 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
 
     public UserResponseDTO createUser(UserCreateDTO userCreateDTO) {
-        userRepository.findByUsername(userCreateDTO.getUsername())
+        userRepository.findByDisplayName(userCreateDTO.getDisplayName())
                 .ifPresent(u -> {
-                    throw new UserAlreadyExistsException("Username " + userCreateDTO.getUsername() + " is already taken.");
+                    throw new UserAlreadyExistsException("Username " + userCreateDTO.getDisplayName() + " is already taken.");
                 });
         userRepository.findByEmail(userCreateDTO.getEmail())
                 .ifPresent(u -> {
@@ -37,7 +37,7 @@ public class UserService {
                 });
 
         User user = new User();
-        user.setUsername(userCreateDTO.getUsername());
+        user.setDisplayName(userCreateDTO.getDisplayName());
         user.setEmail(userCreateDTO.getEmail());
         user.setPassword(passwordEncoder.encode(userCreateDTO.getPassword()));
 
